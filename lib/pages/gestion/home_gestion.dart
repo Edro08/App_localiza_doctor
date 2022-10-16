@@ -48,22 +48,24 @@ class _HomeGestionState extends State<HomeGestion> {
   }
 
   Widget bodyGestion() {
-    return Column(
-      children: [
-        imagenGestion(),
-        btnGestionDoctores(),
-        btnGestionEspecialidas(),
-        btnGestionLocales(),
-        btnGestionDoctorLocal()
-      ],
+    return SingleChildScrollView(
+      child: Column(
+        children: [
+          imagenGestion(),
+          btnGestionDoctores(),
+          btnGestionEspecialidas(),
+          btnGestionLocales(),
+          btnGestionDoctorLocal()
+        ],
+      ),
     );
   }
 
   Widget imagenGestion() {
     return Container(
-      height: 80,
+      height: 200,
       decoration: const BoxDecoration(
-        color: Colors.amber,
+        color: Colors.white,
       ),
     );
   }
@@ -71,18 +73,33 @@ class _HomeGestionState extends State<HomeGestion> {
   Widget btnGestionDoctores() {
     return Column(
       children: [
-        Center(
-          child: MaterialButton(
-            minWidth: 40.0,
-            height: 40.0,
-            onPressed: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => const Contenedor()));
-            },
-            color: Colors.amber,
-            child:
-                const Text('Ingresar', style: TextStyle(color: Colors.white)),
-          ),
+        Padding(
+          padding: const EdgeInsets.only(left: 100, right: 100, top: 10),
+          child: ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                primary: Colors.amber,
+                onPrimary: Colors.red,
+                padding: const EdgeInsets.all(10.0),
+              ),
+              onPressed: () {
+                Navigator.pop(context);
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const Contenedor()));
+              },
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: const [
+                  Icon(
+                    Icons.arrow_back_outlined,
+                    color: Colors.white,
+                  ),
+                  Text('Gestionar Doctores',
+                      style: TextStyle(color: Colors.white)),
+                ],
+              )),
         ),
       ],
     );
@@ -91,18 +108,33 @@ class _HomeGestionState extends State<HomeGestion> {
   Widget btnGestionEspecialidas() {
     return Column(
       children: [
-        Center(
-          child: MaterialButton(
-            minWidth: 40.0,
-            height: 40.0,
-            onPressed: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => const Contenedor()));
-            },
-            color: Colors.amber,
-            child:
-                const Text('Ingresar', style: TextStyle(color: Colors.white)),
-          ),
+        Padding(
+          padding: const EdgeInsets.only(left: 100, right: 100, top: 10),
+          child: ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                primary: Colors.amber,
+                onPrimary: Colors.red,
+                padding: const EdgeInsets.all(10.0),
+              ),
+              onPressed: () {
+                Navigator.pop(context);
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const Contenedor()));
+              },
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: const [
+                  Icon(
+                    Icons.arrow_back_outlined,
+                    color: Colors.white,
+                  ),
+                  Text('Gestionar Especialidades',
+                      style: TextStyle(color: Colors.white)),
+                ],
+              )),
         ),
       ],
     );
@@ -111,18 +143,33 @@ class _HomeGestionState extends State<HomeGestion> {
   Widget btnGestionLocales() {
     return Column(
       children: [
-        Center(
-          child: MaterialButton(
-            minWidth: 40.0,
-            height: 40.0,
-            onPressed: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => const Contenedor()));
-            },
-            color: Colors.amber,
-            child:
-                const Text('Ingresar', style: TextStyle(color: Colors.white)),
-          ),
+        Padding(
+          padding: const EdgeInsets.only(left: 100, right: 100, top: 10),
+          child: ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                primary: Colors.amber,
+                onPrimary: Colors.red,
+                padding: const EdgeInsets.all(10.0),
+              ),
+              onPressed: () {
+                Navigator.pop(context);
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const Contenedor()));
+              },
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: const [
+                  Icon(
+                    Icons.arrow_back_outlined,
+                    color: Colors.white,
+                  ),
+                  Text('Gestionar Hospitales/Clinicas',
+                      style: TextStyle(color: Colors.white)),
+                ],
+              )),
         ),
       ],
     );
@@ -131,18 +178,33 @@ class _HomeGestionState extends State<HomeGestion> {
   Widget btnGestionDoctorLocal() {
     return Column(
       children: [
-        Center(
-          child: MaterialButton(
-            minWidth: 40.0,
-            height: 40.0,
-            onPressed: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => const Contenedor()));
-            },
-            color: Colors.amber,
-            child:
-                const Text('Ingresar', style: TextStyle(color: Colors.white)),
-          ),
+        Padding(
+          padding: const EdgeInsets.only(left: 100, right: 100, top: 10),
+          child: ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                primary: Colors.amber,
+                onPrimary: Colors.red,
+                padding: const EdgeInsets.all(10.0),
+              ),
+              onPressed: () {
+                Navigator.pop(context);
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const Contenedor()));
+              },
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: const [
+                  Icon(
+                    Icons.arrow_back_outlined,
+                    color: Colors.white,
+                  ),
+                  Text('Asignar Doctores a Local',
+                      style: TextStyle(color: Colors.white)),
+                ],
+              )),
         ),
       ],
     );
