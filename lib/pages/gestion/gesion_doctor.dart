@@ -1,28 +1,25 @@
-import 'package:app_localiza_doctor/pages/gestion/gesion_doctor.dart';
-import 'package:app_localiza_doctor/pages/gestion/gestion_doctor_local.dart';
-import 'package:app_localiza_doctor/pages/gestion/gestion_especialidad.dart';
-import 'package:app_localiza_doctor/pages/gestion/gestion_local.dart';
+import 'package:app_localiza_doctor/pages/doctor/listado_doctor.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_feather_icons/flutter_feather_icons.dart';
+import "package:flutter_feather_icons/flutter_feather_icons.dart";
 
-class HomeGestion extends StatefulWidget {
-  const HomeGestion({super.key});
+class GestionDoctor extends StatefulWidget {
+  const GestionDoctor({super.key});
 
   @override
-  State<HomeGestion> createState() => _HomeGestionState();
+  State<GestionDoctor> createState() => _GestionDoctorState();
 }
 
-class _HomeGestionState extends State<HomeGestion> {
+class _GestionDoctorState extends State<GestionDoctor> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: appBarGestion(),
-      body: bodyGestion(),
+      appBar: appBarGestionDoctor(),
+      body: bodyGestionDoctor(),
     );
   }
 
-  appBarGestion() {
+  appBarGestionDoctor() {
     return AppBar(
       backgroundColor: Colors.transparent,
       elevation: 0,
@@ -31,7 +28,7 @@ class _HomeGestionState extends State<HomeGestion> {
           child:
               Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
             const Text(
-              "Menú Principal",
+              "Gestionar Doctores",
               style:
                   TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
             ),
@@ -43,7 +40,7 @@ class _HomeGestionState extends State<HomeGestion> {
               },
               color: Colors.amber,
               child: const Icon(
-                FeatherIcons.logOut,
+                Icons.arrow_back_outlined,
                 color: Colors.white,
               ),
             ),
@@ -51,15 +48,14 @@ class _HomeGestionState extends State<HomeGestion> {
     );
   }
 
-  Widget bodyGestion() {
+  Widget bodyGestionDoctor() {
     return SingleChildScrollView(
       child: Column(
         children: [
-          imagenGestion(),
-          btnGestionDoctores(),
-          btnGestionEspecialidas(),
-          btnGestionLocales(),
-          btnGestionDoctorLocal(),
+          btnAdicionar(),
+          btnActualizar(),
+          btnDeshabilitar(),
+          btnListar(),
           const SizedBox(
             height: 50,
           )
@@ -68,16 +64,7 @@ class _HomeGestionState extends State<HomeGestion> {
     );
   }
 
-  Widget imagenGestion() {
-    return Container(
-      height: 200,
-      decoration: const BoxDecoration(
-        color: Colors.white,
-      ),
-    );
-  }
-
-  Widget btnGestionDoctores() {
+  Widget btnAdicionar() {
     return Padding(
       padding: const EdgeInsets.only(left: 100, right: 100, top: 10),
       child: ElevatedButton(
@@ -88,51 +75,25 @@ class _HomeGestionState extends State<HomeGestion> {
           ),
           onPressed: () {
             Navigator.push(context,
-                MaterialPageRoute(builder: (context) => const GestionDoctor()));
+                MaterialPageRoute(builder: (context) => const ListadoDoctor()));
           },
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: const [
               Icon(
-                Icons.arrow_back_outlined,
+                FeatherIcons.plusSquare,
                 color: Colors.white,
               ),
-              Text('Gestionar Doctores', style: TextStyle(color: Colors.white)),
+              SizedBox(
+                width: 5,
+              ),
+              Text('Adicionar', style: TextStyle(color: Colors.white)),
             ],
           )),
     );
   }
 
-  Widget btnGestionEspecialidas() {
-    return Padding(
-      padding: const EdgeInsets.only(left: 100, right: 100, top: 10),
-      child: ElevatedButton(
-          style: ElevatedButton.styleFrom(
-            primary: Colors.amber,
-            onPrimary: Colors.red,
-            padding: const EdgeInsets.all(10.0),
-          ),
-          onPressed: () {
-            Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (context) => const GestionEspecialidad()));
-          },
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: const [
-              Icon(
-                Icons.arrow_back_outlined,
-                color: Colors.white,
-              ),
-              Text('Gestionar Especialidades',
-                  style: TextStyle(color: Colors.white)),
-            ],
-          )),
-    );
-  }
-
-  Widget btnGestionLocales() {
+  Widget btnActualizar() {
     return Padding(
       padding: const EdgeInsets.only(left: 100, right: 100, top: 10),
       child: ElevatedButton(
@@ -143,23 +104,25 @@ class _HomeGestionState extends State<HomeGestion> {
           ),
           onPressed: () {
             Navigator.push(context,
-                MaterialPageRoute(builder: (context) => const GestionLocal()));
+                MaterialPageRoute(builder: (context) => const ListadoDoctor()));
           },
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: const [
               Icon(
-                Icons.arrow_back_outlined,
+                FeatherIcons.rotateCcw,
                 color: Colors.white,
               ),
-              Text('Gestionar Hospitales/Clinicas',
-                  style: TextStyle(color: Colors.white)),
+              SizedBox(
+                width: 5,
+              ),
+              Text('Actualizar', style: TextStyle(color: Colors.white)),
             ],
           )),
     );
   }
 
-  Widget btnGestionDoctorLocal() {
+  Widget btnDeshabilitar() {
     return Padding(
       padding: const EdgeInsets.only(left: 100, right: 100, top: 10),
       child: ElevatedButton(
@@ -169,20 +132,49 @@ class _HomeGestionState extends State<HomeGestion> {
             padding: const EdgeInsets.all(10.0),
           ),
           onPressed: () {
-            Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (context) => const GestionDoctorLocal()));
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => const ListadoDoctor()));
           },
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: const [
               Icon(
-                Icons.arrow_back_outlined,
+                FeatherIcons.xSquare,
                 color: Colors.white,
               ),
-              Text('Asignar Doctores a Local',
-                  style: TextStyle(color: Colors.white)),
+              SizedBox(
+                width: 5,
+              ),
+              Text('Deshabilitar', style: TextStyle(color: Colors.white)),
+            ],
+          )),
+    );
+  }
+
+  Widget btnListar() {
+    return Padding(
+      padding: const EdgeInsets.only(left: 100, right: 100, top: 10),
+      child: ElevatedButton(
+          style: ElevatedButton.styleFrom(
+            primary: Colors.amber,
+            onPrimary: Colors.red,
+            padding: const EdgeInsets.all(10.0),
+          ),
+          onPressed: () {
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => const ListadoDoctor()));
+          },
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: const [
+              Icon(
+                FeatherIcons.list,
+                color: Colors.white,
+              ),
+              SizedBox(
+                width: 5,
+              ),
+              Text('Listar', style: TextStyle(color: Colors.white)),
             ],
           )),
     );
