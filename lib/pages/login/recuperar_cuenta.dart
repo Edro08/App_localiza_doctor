@@ -18,7 +18,7 @@ class _RecuperarCuentaState extends State<RecuperarCuenta> {
     );
   }
 
-  body(){
+  body() {
     return SingleChildScrollView(
       child: Column(
         children: [
@@ -36,23 +36,21 @@ class _RecuperarCuentaState extends State<RecuperarCuenta> {
       width: MediaQuery.of(context).size.width / 1.9,
       height: MediaQuery.of(context).size.width / 1.9,
       decoration: BoxDecoration(
-        image: DecorationImage(
-          image: AssetImage("assets/Images/doc.png"),
-          fit: BoxFit.cover,
-        ),
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(10)
-      ),
+          image: const DecorationImage(
+            image: AssetImage("assets/Images/doc.png"),
+            fit: BoxFit.cover,
+          ),
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(10)),
     );
   }
 
   Widget emailRecuperarCuenta() {
-    return Padding(
-      padding: const EdgeInsets.only(left: 20, right: 20, bottom: 15, top: 10),
-      child: Container(
-        child: TextField(
-          //maxLength: 20,
-          decoration: InputDecoration(
+    return const Padding(
+      padding: EdgeInsets.only(left: 20, right: 20, bottom: 15, top: 10),
+      child: TextField(
+        //maxLength: 20,
+        decoration: InputDecoration(
             //icon: Icon(Icons.favorite),
             labelText: 'Correo',
             fillColor: Colors.white,
@@ -60,14 +58,9 @@ class _RecuperarCuentaState extends State<RecuperarCuenta> {
             //errorText: 'Error message',
             border: OutlineInputBorder(),
             prefixIcon: Icon(Icons.email),
-            hintText: "Ingrese su Correo"
-          ),
-          style: TextStyle(
-            fontSize: 13,
-            fontWeight: FontWeight.normal,
-            color: Colors.black
-          ),
-        ),
+            hintText: "Ingrese su Correo"),
+        style: TextStyle(
+            fontSize: 13, fontWeight: FontWeight.normal, color: Colors.black),
       ),
     );
   }
@@ -76,30 +69,30 @@ class _RecuperarCuentaState extends State<RecuperarCuenta> {
     return Padding(
       padding: const EdgeInsets.only(left: 100, right: 100),
       child: ElevatedButton(
-        style: ElevatedButton.styleFrom(
-          primary: Colors.amber,
-          onPrimary: Colors.red,
-          padding: const EdgeInsets.all(10.0),
-        ),
-        onPressed: () {
-          Navigator.push(context,
-            MaterialPageRoute(builder: (context) => const VerificacionCuenta())
-          );
-        },
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: const [
-            Icon(
-              FeatherIcons.logIn,
-              color: Colors.black,
-            ),
-            SizedBox(
-              width: 5,
-            ),
-            Text('Enviar', style: TextStyle(color: Colors.black)),
-          ],
-        )
-      ),
+          style: ElevatedButton.styleFrom(
+            primary: Colors.amber,
+            onPrimary: Colors.red,
+            padding: const EdgeInsets.all(10.0),
+          ),
+          onPressed: () {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => const VerificacionCuenta()));
+          },
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: const [
+              Icon(
+                FeatherIcons.logIn,
+                color: Colors.black,
+              ),
+              SizedBox(
+                width: 5,
+              ),
+              Text('Enviar', style: TextStyle(color: Colors.black)),
+            ],
+          )),
     );
   }
 
@@ -109,14 +102,13 @@ class _RecuperarCuentaState extends State<RecuperarCuenta> {
       backgroundColor: Colors.transparent,
       elevation: 0,
       title: Padding(
-        padding: const EdgeInsets.only(left: 0, right: 10),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween, 
-          children: [
+          padding: const EdgeInsets.only(left: 0, right: 10),
+          child:
+              Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
             const Text(
               "Recuperar Contraseña",
               style:
-                TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+                  TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
             ),
             MaterialButton(
               minWidth: 30.0,
@@ -130,9 +122,7 @@ class _RecuperarCuentaState extends State<RecuperarCuenta> {
                 color: Colors.white,
               ),
             ),
-          ]
-        )
-      ),
+          ])),
     );
   }
 }
