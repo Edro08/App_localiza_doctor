@@ -112,7 +112,7 @@ class _ListadoEspecialidadState extends State<ListadoEspecialidad> {
           Padding(
             padding: const EdgeInsets.only(right: 5.0),
             child: Container(
-              width: 340,
+              width: MediaQuery.of(context).size.width/1.4,
               height: 50,
               decoration:
                   BoxDecoration(border: Border.all(color: Colors.amber)),
