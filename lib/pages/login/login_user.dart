@@ -1,4 +1,5 @@
 import 'package:app_localiza_doctor/pages/gestion/home_gestion.dart';
+import 'package:app_localiza_doctor/pages/login/recuperar_cuenta.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 
@@ -99,28 +100,30 @@ class _LoginState extends State<Login> {
     return Padding(
       padding: const EdgeInsets.only(left: 100, right: 100),
       child: ElevatedButton(
-          style: ElevatedButton.styleFrom(
-            primary: Colors.amber,
-            onPrimary: Colors.red,
-            padding: const EdgeInsets.all(10.0),
-          ),
-          onPressed: () {
-            Navigator.push(context,
-                MaterialPageRoute(builder: (context) => const HomeGestion()));
-          },
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: const [
-              Icon(
-                FeatherIcons.logIn,
-                color: Colors.black,
-              ),
-              SizedBox(
-                width: 5,
-              ),
-              Text('Ingresar', style: TextStyle(color: Colors.black)),
-            ],
-          )),
+        style: ElevatedButton.styleFrom(
+          primary: Colors.amber,
+          onPrimary: Colors.red,
+          padding: const EdgeInsets.all(10.0),
+        ),
+        onPressed: () {
+          Navigator.push(context,
+            MaterialPageRoute(builder: (context) => const HomeGestion())
+          );
+        },
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: const [
+            Icon(
+              FeatherIcons.logIn,
+              color: Colors.black,
+            ),
+            SizedBox(
+              width: 5,
+            ),
+            Text('Ingresar', style: TextStyle(color: Colors.black)),
+          ],
+        )
+      ),
     );
   }
 
@@ -147,9 +150,9 @@ class _LoginState extends State<Login> {
               elevation: 0
             ),
             onPressed: () {
-              //Navigator.push(context,
-                //MaterialPageRoute(builder: (context) => const HomeGestion())
-              //);
+              Navigator.push(context,
+                MaterialPageRoute(builder: (context) => const RecuperarCuenta())
+              );
             },
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
