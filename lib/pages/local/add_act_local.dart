@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 
-class adic_actu_local extends StatefulWidget {
-  const adic_actu_local({Key? key, this.index}) : super(key: key);
+class AdicionarLocal extends StatefulWidget {
+  const AdicionarLocal({Key? key, this.index}) : super(key: key);
   final dynamic index;
   //1 es para añadir nuevo registro
   //2 es para actualizar un registro ya existente
 
   @override
-  State<adic_actu_local> createState() => _adic_actu_localState();
+  State<AdicionarLocal> createState() => _AdicionarLocal();
 }
 
-class _adic_actu_localState extends State<adic_actu_local> {
+class _AdicionarLocal extends State<AdicionarLocal> {
   List<String> listFiltro = <String>[
     'Onedhddgdgdgdgdgd',
     'Two',
@@ -38,7 +38,7 @@ class _adic_actu_localState extends State<adic_actu_local> {
           appBarAdicionarHospital(),
           AgregarCodigo(),
           AgregarNombreHospital(),
-          Listado(),
+          ListadoLocales(),
           DireccionHospital()
         ],
       ),
@@ -83,7 +83,7 @@ class _adic_actu_localState extends State<adic_actu_local> {
     );
   }
 
-  Widget Listado() {
+  Widget ListadoLocales() {
     return Container(
       width: MediaQuery.of(context).size.width / 1.4,
       height: 50,
