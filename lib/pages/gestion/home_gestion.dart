@@ -24,6 +24,7 @@ class _HomeGestionState extends State<HomeGestion> {
 
   appBarGestion() {
     return AppBar(
+      automaticallyImplyLeading: false,
       backgroundColor: Colors.transparent,
       elevation: 0,
       title: Padding(
@@ -69,17 +70,25 @@ class _HomeGestionState extends State<HomeGestion> {
   }
 
   Widget imagenGestion() {
-    return Container(
-      height: 200,
-      decoration: const BoxDecoration(
-        color: Colors.white,
+    return Padding(
+      padding: const EdgeInsets.only(top: 5, bottom: 5),
+      child: Container(
+        width: MediaQuery.of(context).size.width / 1.9,
+        height: MediaQuery.of(context).size.width / 1.9,
+        decoration: BoxDecoration(
+            image: const DecorationImage(
+              image: AssetImage("assets/Images/doc.png"),
+              fit: BoxFit.cover,
+            ),
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(10)),
       ),
     );
   }
 
   Widget btnGestionDoctores() {
     return Padding(
-      padding: const EdgeInsets.only(left: 100, right: 100, top: 10),
+      padding: const EdgeInsets.only(left: 50, right: 50, top: 10),
       child: ElevatedButton(
           style: ElevatedButton.styleFrom(
             primary: Colors.amber,
@@ -105,7 +114,7 @@ class _HomeGestionState extends State<HomeGestion> {
 
   Widget btnGestionEspecialidas() {
     return Padding(
-      padding: const EdgeInsets.only(left: 100, right: 100, top: 10),
+      padding: const EdgeInsets.only(left: 50, right: 50, top: 10),
       child: ElevatedButton(
           style: ElevatedButton.styleFrom(
             primary: Colors.amber,
@@ -134,7 +143,7 @@ class _HomeGestionState extends State<HomeGestion> {
 
   Widget btnGestionLocales() {
     return Padding(
-      padding: const EdgeInsets.only(left: 100, right: 100, top: 10),
+      padding: const EdgeInsets.only(left: 50, right: 50, top: 10),
       child: ElevatedButton(
           style: ElevatedButton.styleFrom(
             primary: Colors.amber,
@@ -161,7 +170,7 @@ class _HomeGestionState extends State<HomeGestion> {
 
   Widget btnGestionDoctorLocal() {
     return Padding(
-      padding: const EdgeInsets.only(left: 100, right: 100, top: 10),
+      padding: const EdgeInsets.only(left: 50, right: 50, top: 10),
       child: ElevatedButton(
           style: ElevatedButton.styleFrom(
             primary: Colors.amber,

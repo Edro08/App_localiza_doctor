@@ -21,6 +21,7 @@ class _GestionLocalState extends State<GestionLocal> {
 
   appBarGestionLocal() {
     return AppBar(
+      automaticallyImplyLeading: false,
       backgroundColor: Colors.transparent,
       elevation: 0,
       title: Padding(

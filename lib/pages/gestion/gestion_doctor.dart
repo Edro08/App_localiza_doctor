@@ -21,6 +21,7 @@ class _GestionDoctorState extends State<GestionDoctor> {
 
   appBarGestionDoctor() {
     return AppBar(
+      automaticallyImplyLeading: false,
       backgroundColor: Colors.transparent,
       elevation: 0,
       title: Padding(
