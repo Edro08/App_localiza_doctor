@@ -1,3 +1,4 @@
+import 'package:app_localiza_doctor/pages/especialidad/adiccionar_especialidad.dart';
 import 'package:app_localiza_doctor/pages/especialidad/listado_especialidad.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
@@ -75,13 +76,10 @@ class _GestionEspecialidadState extends State<GestionEspecialidad> {
             padding: const EdgeInsets.all(10.0),
           ),
           onPressed: () {
-            accion = "Adiccionar";
             Navigator.push(
                 context,
                 MaterialPageRoute(
-                    builder: (context) => ListadoEspecialidad(
-                          accion: accion,
-                        )));
+                    builder: (context) => const AdiccionarEspecialidades()));
           },
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,

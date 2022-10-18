@@ -1,5 +1,6 @@
-import 'package:app_localiza_doctor/pages/especialidad/add_act_especialidad.dart';
+import 'package:app_localiza_doctor/pages/especialidad/actualizar_especialidad.dart';
 import 'package:app_localiza_doctor/pages/especialidad/deshabilitar_especialidad.dart';
+import 'package:app_localiza_doctor/pages/especialidad/detalle_especialidad.dart';
 import 'package:flutter/material.dart';
 
 class ListadoEspecialidad extends StatefulWidget {
@@ -177,9 +178,9 @@ class _ListadoEspecialidadState extends State<ListadoEspecialidad> {
                   MaterialPageRoute(
                       builder: (context) => (accion == "Deshabilitar")
                           ? const DeshabilitaEspecialidad()
-                          : (accion == "Addicionar")
-                              ? const Adic_Actu_Especialidades()
-                              : const Adic_Actu_Especialidades()));
+                          : (accion == "Actualizar")
+                              ? const ActualizarEspecialidades()
+                              : const DetalleEspecialidad()));
             },
             child: const Icon(
               Icons.search,
