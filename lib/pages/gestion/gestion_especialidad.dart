@@ -1,3 +1,4 @@
+import 'package:app_localiza_doctor/pages/especialidad/adiccionar_especialidad.dart';
 import 'package:app_localiza_doctor/pages/especialidad/listado_especialidad.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
@@ -10,6 +11,7 @@ class GestionEspecialidad extends StatefulWidget {
 }
 
 class _GestionEspecialidadState extends State<GestionEspecialidad> {
+  String accion = "";
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,6 +23,7 @@ class _GestionEspecialidadState extends State<GestionEspecialidad> {
 
   appBarGestionEspecialidad() {
     return AppBar(
+      automaticallyImplyLeading: false,
       backgroundColor: Colors.transparent,
       elevation: 0,
       title: Padding(
@@ -77,7 +80,7 @@ class _GestionEspecialidadState extends State<GestionEspecialidad> {
             Navigator.push(
                 context,
                 MaterialPageRoute(
-                    builder: (context) => const ListadoEspecialidad()));
+                    builder: (context) => const AdiccionarEspecialidades(index: 1,)));
           },
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -105,10 +108,13 @@ class _GestionEspecialidadState extends State<GestionEspecialidad> {
             padding: const EdgeInsets.all(10.0),
           ),
           onPressed: () {
+            accion = "Actualizar";
             Navigator.push(
                 context,
                 MaterialPageRoute(
-                    builder: (context) => const ListadoEspecialidad()));
+                    builder: (context) => ListadoEspecialidad(
+                          accion: accion,
+                        )));
           },
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -136,10 +142,13 @@ class _GestionEspecialidadState extends State<GestionEspecialidad> {
             padding: const EdgeInsets.all(10.0),
           ),
           onPressed: () {
+            accion = "Deshabilitar";
             Navigator.push(
                 context,
                 MaterialPageRoute(
-                    builder: (context) => const ListadoEspecialidad()));
+                    builder: (context) => ListadoEspecialidad(
+                          accion: accion,
+                        )));
           },
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -167,10 +176,13 @@ class _GestionEspecialidadState extends State<GestionEspecialidad> {
             padding: const EdgeInsets.all(10.0),
           ),
           onPressed: () {
+            accion = "Listar";
             Navigator.push(
                 context,
                 MaterialPageRoute(
-                    builder: (context) => const ListadoEspecialidad()));
+                    builder: (context) => ListadoEspecialidad(
+                          accion: accion,
+                        )));
           },
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,

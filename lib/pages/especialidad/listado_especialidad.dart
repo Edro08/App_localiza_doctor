@@ -1,7 +1,11 @@
+import 'package:app_localiza_doctor/pages/especialidad/actualizar_especialidad.dart';
+import 'package:app_localiza_doctor/pages/especialidad/deshabilitar_especialidad.dart';
+import 'package:app_localiza_doctor/pages/especialidad/detalle_especialidad.dart';
 import 'package:flutter/material.dart';
 
 class ListadoEspecialidad extends StatefulWidget {
-  const ListadoEspecialidad({super.key});
+  const ListadoEspecialidad({Key? key, this.accion}) : super(key: key);
+  final dynamic accion;
 
   @override
   State<ListadoEspecialidad> createState() => _ListadoEspecialidadState();
@@ -10,11 +14,29 @@ class ListadoEspecialidad extends StatefulWidget {
 class _ListadoEspecialidadState extends State<ListadoEspecialidad> {
   List<String> listFiltro = <String>['One', 'Two', 'Three', 'Four'];
   late String dropdownValue;
+  String accion = "";
+  String titulo = "";
 
   @override
   void initState() {
     dropdownValue = listFiltro.first;
     super.initState();
+    accion = widget.accion;
+
+    switch (accion) {
+      case "Deshabilitar":
+        titulo = "Deshabilitar Especialidad";
+        break;
+      case "Adiccionar":
+        titulo = "Adiccionar Especialidad";
+        break;
+      case "Actualizar":
+        titulo = "Actualizar Especialidad";
+        break;
+      case "Listar":
+        titulo = "Lista de Especialidad";
+        break;
+    }
   }
 
   @override
@@ -28,16 +50,17 @@ class _ListadoEspecialidadState extends State<ListadoEspecialidad> {
 
   appBarEspecialidad() {
     return AppBar(
+      automaticallyImplyLeading: false,
       backgroundColor: Colors.transparent,
       elevation: 0,
       title: Padding(
           padding: const EdgeInsets.only(left: 0, right: 10),
           child:
               Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-            const Text(
-              "Lista de Especialidad",
-              style:
-                  TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+            Text(
+              titulo,
+              style: const TextStyle(
+                  color: Colors.black, fontWeight: FontWeight.bold),
             ),
             MaterialButton(
               minWidth: 30.0,
@@ -112,7 +135,7 @@ class _ListadoEspecialidadState extends State<ListadoEspecialidad> {
           Padding(
             padding: const EdgeInsets.only(right: 5.0),
             child: Container(
-              width: MediaQuery.of(context).size.width/1.4,
+              width: MediaQuery.of(context).size.width / 1.4,
               height: 50,
               decoration:
                   BoxDecoration(border: Border.all(color: Colors.amber)),
@@ -150,7 +173,16 @@ class _ListadoEspecialidadState extends State<ListadoEspecialidad> {
             minWidth: 30.0,
             height: 50.0,
             color: Colors.amber,
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => (accion == "Deshabilitar")
+                          ? const DeshabilitaEspecialidad()
+                          : (accion == "Actualizar")
+                              ? const ActualizarEspecialidades(index: 2,)
+                              : const DetalleEspecialidad()));
+            },
             child: const Icon(
               Icons.search,
               color: Colors.white,

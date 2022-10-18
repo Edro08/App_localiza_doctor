@@ -1,18 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 
-class Adic_Actu_Especialidades extends StatefulWidget {
-  const Adic_Actu_Especialidades({Key? key, this.index}): super(key: key);
+class AdiccionarEspecialidades extends StatefulWidget {
+  const AdiccionarEspecialidades({Key? key, this.index}) : super(key: key);
   final dynamic index;
   //1 : Adicionar
   //2 : Actualizar
 
   @override
-  State<Adic_Actu_Especialidades> createState() => _Adic_Actu_EspecialidadesState();
+  State<AdiccionarEspecialidades> createState() =>
+      _AdiccionarEspecialidadesState();
 }
 
-class _Adic_Actu_EspecialidadesState extends State<Adic_Actu_Especialidades> {
-  List<String> listFiltro = <String>['Onedhddgdgdgdgdgd', 'Two', 'Three', 'Four'];
+class _AdiccionarEspecialidadesState extends State<AdiccionarEspecialidades> {
+  List<String> listFiltro = <String>[
+    'Onedhddgdgdgdgdgd',
+    'Two',
+    'Three',
+    'Four'
+  ];
   late String dropdownValue;
 
   @override
@@ -29,7 +35,7 @@ class _Adic_Actu_EspecialidadesState extends State<Adic_Actu_Especialidades> {
     );
   }
 
-  body(){
+  body() {
     return SingleChildScrollView(
       child: Column(
         children: [
@@ -48,31 +54,25 @@ class _Adic_Actu_EspecialidadesState extends State<Adic_Actu_Especialidades> {
         child: TextField(
           //maxLength: 20,
           decoration: InputDecoration(
-            //icon: Icon(Icons.favorite),
-            labelText: 'Nombre Especialidad',
-            fillColor: Colors.white,
-            filled: true,
-            //errorText: 'Error message',
-            border: OutlineInputBorder(),
-            hintText: "Ingrese el Nombre de la Especialidad"
-          ),
+              //icon: Icon(Icons.favorite),
+              labelText: 'Nombre Especialidad',
+              fillColor: Colors.white,
+              filled: true,
+              //errorText: 'Error message',
+              border: OutlineInputBorder(),
+              hintText: "Ingrese el Nombre de la Especialidad"),
           style: TextStyle(
-            fontSize: 13,
-            fontWeight: FontWeight.normal,
-            color: Colors.black
-          ),
+              fontSize: 13, fontWeight: FontWeight.normal, color: Colors.black),
         ),
       ),
     );
   }
 
-  Widget Listado(){
+  Widget Listado() {
     return Container(
-      width: MediaQuery.of(context).size.width/1.4,
+      width: MediaQuery.of(context).size.width / 1.4,
       height: 50,
-      decoration: BoxDecoration(
-        border: Border.all(color: Colors.amber)
-      ),
+      decoration: BoxDecoration(border: Border.all(color: Colors.amber)),
       child: Padding(
         padding: const EdgeInsets.only(left: 8, right: 8),
         child: DropdownButton<String>(
@@ -108,14 +108,17 @@ class _Adic_Actu_EspecialidadesState extends State<Adic_Actu_Especialidades> {
       backgroundColor: Colors.transparent,
       elevation: 0,
       title: Padding(
-        padding: const EdgeInsets.only(left: 0, right: 10),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween, 
-          children: [
+          padding: const EdgeInsets.only(left: 0, right: 10),
+          child:
+              Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
             Text(
-              widget.index==1? "Adicionar Especialidad" : widget.index ==2 ? "Actualizar Especialidad" : "",
+              widget.index == 1
+                  ? "Adicionar Especialidad"
+                  : widget.index == 2
+                      ? "Actualizar Especialidad"
+                      : "",
               style:
-                TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+                  TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
             ),
             MaterialButton(
               minWidth: 30.0,
@@ -129,9 +132,7 @@ class _Adic_Actu_EspecialidadesState extends State<Adic_Actu_Especialidades> {
                 color: Colors.white,
               ),
             ),
-          ]
-        )
-      ),
+          ])),
     );
   }
 }

@@ -1,4 +1,5 @@
 import 'package:app_localiza_doctor/pages/doctor/listado_doctor.dart';
+import 'package:app_localiza_doctor/pages/doctor/add_act_doctor.dart';
 import 'package:flutter/material.dart';
 import "package:flutter_feather_icons/flutter_feather_icons.dart";
 
@@ -21,6 +22,7 @@ class _GestionDoctorState extends State<GestionDoctor> {
 
   appBarGestionDoctor() {
     return AppBar(
+      automaticallyImplyLeading: false,
       backgroundColor: Colors.transparent,
       elevation: 0,
       title: Padding(
@@ -75,7 +77,7 @@ class _GestionDoctorState extends State<GestionDoctor> {
           ),
           onPressed: () {
             Navigator.push(context,
-                MaterialPageRoute(builder: (context) => const ListadoDoctor()));
+                MaterialPageRoute(builder: (context) => const Add_Act_Doctor()));
           },
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -104,7 +106,7 @@ class _GestionDoctorState extends State<GestionDoctor> {
           ),
           onPressed: () {
             Navigator.push(context,
-                MaterialPageRoute(builder: (context) => const ListadoDoctor()));
+                MaterialPageRoute(builder: (context) => const Add_Act_Doctor()));
           },
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
