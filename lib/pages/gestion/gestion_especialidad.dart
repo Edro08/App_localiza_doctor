@@ -10,6 +10,7 @@ class GestionEspecialidad extends StatefulWidget {
 }
 
 class _GestionEspecialidadState extends State<GestionEspecialidad> {
+  String accion = "";
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -74,10 +75,13 @@ class _GestionEspecialidadState extends State<GestionEspecialidad> {
             padding: const EdgeInsets.all(10.0),
           ),
           onPressed: () {
+            accion = "Adiccionar";
             Navigator.push(
                 context,
                 MaterialPageRoute(
-                    builder: (context) => const ListadoEspecialidad()));
+                    builder: (context) => ListadoEspecialidad(
+                          accion: accion,
+                        )));
           },
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -105,10 +109,13 @@ class _GestionEspecialidadState extends State<GestionEspecialidad> {
             padding: const EdgeInsets.all(10.0),
           ),
           onPressed: () {
+            accion = "Actualizar";
             Navigator.push(
                 context,
                 MaterialPageRoute(
-                    builder: (context) => const ListadoEspecialidad()));
+                    builder: (context) => ListadoEspecialidad(
+                          accion: accion,
+                        )));
           },
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -136,10 +143,13 @@ class _GestionEspecialidadState extends State<GestionEspecialidad> {
             padding: const EdgeInsets.all(10.0),
           ),
           onPressed: () {
+            accion = "Deshabilitar";
             Navigator.push(
                 context,
                 MaterialPageRoute(
-                    builder: (context) => const ListadoEspecialidad()));
+                    builder: (context) => ListadoEspecialidad(
+                          accion: accion,
+                        )));
           },
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -167,10 +177,13 @@ class _GestionEspecialidadState extends State<GestionEspecialidad> {
             padding: const EdgeInsets.all(10.0),
           ),
           onPressed: () {
+            accion = "Listar";
             Navigator.push(
                 context,
                 MaterialPageRoute(
-                    builder: (context) => const ListadoEspecialidad()));
+                    builder: (context) => ListadoEspecialidad(
+                          accion: accion,
+                        )));
           },
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,

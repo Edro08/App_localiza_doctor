@@ -1,4 +1,4 @@
-import 'package:app_localiza_doctor/pages/gestion/gesion_doctor.dart';
+import 'package:app_localiza_doctor/pages/gestion/gestion_doctor.dart';
 import 'package:app_localiza_doctor/pages/gestion/gestion_doctor_local.dart';
 import 'package:app_localiza_doctor/pages/gestion/gestion_especialidad.dart';
 import 'package:app_localiza_doctor/pages/gestion/gestion_local.dart';

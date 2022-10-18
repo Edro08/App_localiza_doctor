@@ -1,33 +1,33 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 
-class Desh_Hab_Especialidad extends StatefulWidget {
-  const Desh_Hab_Especialidad({super.key});
+class DeshabilitaEspecialidad extends StatefulWidget {
+  const DeshabilitaEspecialidad({super.key});
 
   @override
-  State<Desh_Hab_Especialidad> createState() => _Desh_Hab_EspecialidadState();
+  State<DeshabilitaEspecialidad> createState() =>
+      _DeshabilitaEspecialidadState();
 }
 
-class _Desh_Hab_EspecialidadState extends State<Desh_Hab_Especialidad> {
+class _DeshabilitaEspecialidadState extends State<DeshabilitaEspecialidad> {
   bool activo = true;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      body: Body(),
+      appBar: appBarDeshabilitarEspecialidad(),
+      body: bodyDeshabilitarEspecialidad(),
     );
   }
 
-  Body (){
+  bodyDeshabilitarEspecialidad() {
     return SingleChildScrollView(
-      child: Column(
-        children: [
-          appBarDeshabilitarEspecialidad(),
-          line(),
-          lblTrend(),
-          switch_estado()
-        ],
+      child: Padding(
+        padding: const EdgeInsets.only(
+            left: 30.0, right: 30.0, top: 20.0, bottom: 10.0),
+        child: Column(
+          children: [line(), lblTrend(), switchestado()],
+        ),
       ),
     );
   }
@@ -39,16 +39,13 @@ class _Desh_Hab_EspecialidadState extends State<Desh_Hab_Especialidad> {
     );
   }
 
-  Widget switch_estado(){
+  Widget switchestado() {
     return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Text(
-          activo ? "Registro Activo" : "Registro Inactivo", 
-          style:  TextStyle(
-            color: Colors.black,
-            fontSize: 16
-          ),
+          activo ? "Activo" : "Inactivo",
+          style: const TextStyle(color: Colors.black, fontSize: 16),
         ),
         Switch(
           value: activo,
@@ -63,20 +60,19 @@ class _Desh_Hab_EspecialidadState extends State<Desh_Hab_Especialidad> {
     );
   }
 
-  Widget lblTrend(){
+  Widget lblTrend() {
     return Padding(
-      padding: const EdgeInsets.only(left: 20, top: 25),
+      padding: const EdgeInsets.only(top: 10.0),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.start,
-        children: [
+        children: const [
           Center(
             child: Text(
               "Estado",
               style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 17,
-                color: Colors.black
-              ),
+                  fontWeight: FontWeight.bold,
+                  fontSize: 17,
+                  color: Colors.black),
             ),
           ),
         ],
@@ -90,15 +86,13 @@ class _Desh_Hab_EspecialidadState extends State<Desh_Hab_Especialidad> {
       backgroundColor: Colors.transparent,
       elevation: 0,
       title: Padding(
-        padding: const EdgeInsets.only(left: 0, right: 10),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween, 
-          children: [
-            Text(
-              //widget.index==1? "Adicionar Especialidad" : widget.index ==2 ? "Actualizar Especialidad" : "",
+          padding: const EdgeInsets.only(left: 0, right: 10),
+          child:
+              Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
+            const Text(
               "Deshabilitar Especialidad",
               style:
-                TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+                  TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
             ),
             MaterialButton(
               minWidth: 30.0,
@@ -108,13 +102,11 @@ class _Desh_Hab_EspecialidadState extends State<Desh_Hab_Especialidad> {
               },
               color: Colors.amber,
               child: const Icon(
-                FeatherIcons.logOut,
+                Icons.arrow_back_outlined,
                 color: Colors.white,
               ),
             ),
-          ]
-        )
-      ),
+          ])),
     );
   }
 }
