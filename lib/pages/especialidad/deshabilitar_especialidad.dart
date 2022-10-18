@@ -25,6 +25,7 @@ class _Desh_Hab_EspecialidadState extends State<Desh_Hab_Especialidad> {
         children: [
           appBarDeshabilitarEspecialidad(),
           line(),
+          lblTrend(),
           switch_estado()
         ],
       ),
@@ -39,14 +40,47 @@ class _Desh_Hab_EspecialidadState extends State<Desh_Hab_Especialidad> {
   }
 
   Widget switch_estado(){
-    return Switch(
-      value: activo,
-      activeColor: Colors.blueAccent,
-      onChanged: (value) {
-        setState(() {
-          activo = value;
-        });
-      },
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Text(
+          activo ? "Registro Activo" : "Registro Inactivo", 
+          style:  TextStyle(
+            color: Colors.black,
+            fontSize: 16
+          ),
+        ),
+        Switch(
+          value: activo,
+          activeColor: Colors.blueAccent,
+          onChanged: (value) {
+            setState(() {
+              activo = value;
+            });
+          },
+        ),
+      ],
+    );
+  }
+
+  Widget lblTrend(){
+    return Padding(
+      padding: const EdgeInsets.only(left: 20, top: 25),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          Center(
+            child: Text(
+              "Estado",
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 17,
+                color: Colors.black
+              ),
+            ),
+          ),
+        ],
+      ),
     );
   }
 
