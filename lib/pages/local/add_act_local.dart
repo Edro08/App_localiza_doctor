@@ -13,10 +13,11 @@ class AdicionarLocal extends StatefulWidget {
 
 class _AdicionarLocal extends State<AdicionarLocal> {
   List<String> listFiltro = <String>[
-    'Onedhddgdgdgdgdgd',
-    'Two',
-    'Three',
-    'Four'
+    'Zacatecoluca',
+    'San Salvador',
+    'Ciudad de San Miguel',
+    'Puerto de la Libertad',
+    'Planes de Renderos',
   ];
   late String dropdownValue;
 
@@ -28,18 +29,29 @@ class _AdicionarLocal extends State<AdicionarLocal> {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      backgroundColor: Colors.white,
+      appBar: appBarAdicionarHospital(),
+      body: BodyHospital(),
+    );
   }
 
-  Body() {
+  BodyHospital() {
     return SingleChildScrollView(
       child: Column(
         children: [
-          appBarAdicionarHospital(),
           AgregarCodigo(),
           AgregarNombreHospital(),
           ListadoLocales(),
-          DireccionHospital()
+          DireccionHospital(),
+          SizedBox(
+            height: 100,
+          ),
+          btnAceptar(),
+          SizedBox(
+            height: 20,
+          ),
+          btnCancelar()
         ],
       ),
     );
@@ -85,7 +97,7 @@ class _AdicionarLocal extends State<AdicionarLocal> {
 
   Widget ListadoLocales() {
     return Container(
-      width: MediaQuery.of(context).size.width / 1.4,
+      width: MediaQuery.of(context).size.width / 1.12,
       height: 50,
       decoration: BoxDecoration(border: Border.all(color: Colors.amber)),
       child: Padding(
@@ -143,14 +155,12 @@ class _AdicionarLocal extends State<AdicionarLocal> {
           padding: const EdgeInsets.only(left: 0, right: 10),
           child:
               Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-            Text(
-              widget.index == 1
-                  ? "Adicionar Hospital"
-                  : widget.index == 2
-                      ? "Actualizar Hospital"
-                      : "",
-              style:
-                  TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+            const Text(
+              "Adicionar/Actualizar Hospital",
+              style: TextStyle(
+                  color: Colors.black,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 19),
             ),
             MaterialButton(
               minWidth: 30.0,
@@ -165,6 +175,64 @@ class _AdicionarLocal extends State<AdicionarLocal> {
               ),
             ),
           ])),
+    );
+  }
+
+  Widget btnAceptar() {
+    return Padding(
+      padding: const EdgeInsets.only(left: 100, right: 100),
+      child: ElevatedButton(
+          style: ElevatedButton.styleFrom(
+            primary: Colors.amber,
+            onPrimary: Colors.white,
+            padding: const EdgeInsets.all(10.0),
+          ),
+          onPressed: () {
+            //Navigator.push(context,
+            //  MaterialPageRoute(builder: (context) => const HomeGestion()));
+          },
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: const [
+              Icon(
+                FeatherIcons.checkCircle,
+                color: Colors.black,
+              ),
+              SizedBox(
+                width: 5,
+              ),
+              Text('Confirmar', style: TextStyle(color: Colors.black)),
+            ],
+          )),
+    );
+  }
+
+  Widget btnCancelar() {
+    return Padding(
+      padding: const EdgeInsets.only(left: 100, right: 100),
+      child: ElevatedButton(
+          style: ElevatedButton.styleFrom(
+            primary: Colors.red,
+            onPrimary: Colors.white,
+            padding: const EdgeInsets.all(10.0),
+          ),
+          onPressed: () {
+            //Navigator.push(context,
+            //  MaterialPageRoute(builder: (context) => const HomeGestion()));
+          },
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: const [
+              Icon(
+                FeatherIcons.delete,
+                color: Colors.black,
+              ),
+              SizedBox(
+                width: 5,
+              ),
+              Text('Cancelar', style: TextStyle(color: Colors.black)),
+            ],
+          )),
     );
   }
 }

@@ -180,7 +180,9 @@ class _ListadoEspecialidadState extends State<ListadoEspecialidad> {
                       builder: (context) => (accion == "Deshabilitar")
                           ? const DeshabilitaEspecialidad()
                           : (accion == "Actualizar")
-                              ? const ActualizarEspecialidades(index: 2,)
+                              ? const ActualizarEspecialidades(
+                                  index: 2,
+                                )
                               : const DetalleEspecialidad()));
             },
             child: const Icon(

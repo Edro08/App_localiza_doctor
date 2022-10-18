@@ -1,3 +1,4 @@
+import 'package:app_localiza_doctor/pages/local/add_act_local.dart';
 import 'package:app_localiza_doctor/pages/local/listado_local.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
@@ -10,6 +11,7 @@ class GestionLocal extends StatefulWidget {
 }
 
 class _GestionLocalState extends State<GestionLocal> {
+  String accion = "";
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -75,8 +77,10 @@ class _GestionLocalState extends State<GestionLocal> {
             padding: const EdgeInsets.all(10.0),
           ),
           onPressed: () {
-            Navigator.push(context,
-                MaterialPageRoute(builder: (context) => const ListadoLocal()));
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => const AdicionarLocal()));
           },
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -104,8 +108,13 @@ class _GestionLocalState extends State<GestionLocal> {
             padding: const EdgeInsets.all(10.0),
           ),
           onPressed: () {
-            Navigator.push(context,
-                MaterialPageRoute(builder: (context) => const ListadoLocal()));
+            accion = "Actualizar";
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => ListadoLocal(
+                          accion: accion,
+                        )));
           },
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -133,8 +142,13 @@ class _GestionLocalState extends State<GestionLocal> {
             padding: const EdgeInsets.all(10.0),
           ),
           onPressed: () {
-            Navigator.push(context,
-                MaterialPageRoute(builder: (context) => const ListadoLocal()));
+            accion = "Deshabilitar";
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => ListadoLocal(
+                          accion: accion,
+                        )));
           },
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -162,8 +176,13 @@ class _GestionLocalState extends State<GestionLocal> {
             padding: const EdgeInsets.all(10.0),
           ),
           onPressed: () {
-            Navigator.push(context,
-                MaterialPageRoute(builder: (context) => const ListadoLocal()));
+            accion = "Listar";
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => ListadoLocal(
+                          accion: accion,
+                        )));
           },
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
