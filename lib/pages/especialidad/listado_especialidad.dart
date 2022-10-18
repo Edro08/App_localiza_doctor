@@ -50,6 +50,7 @@ class _ListadoEspecialidadState extends State<ListadoEspecialidad> {
 
   appBarEspecialidad() {
     return AppBar(
+      automaticallyImplyLeading: false,
       backgroundColor: Colors.transparent,
       elevation: 0,
       title: Padding(
@@ -179,7 +180,7 @@ class _ListadoEspecialidadState extends State<ListadoEspecialidad> {
                       builder: (context) => (accion == "Deshabilitar")
                           ? const DeshabilitaEspecialidad()
                           : (accion == "Actualizar")
-                              ? const ActualizarEspecialidades()
+                              ? const ActualizarEspecialidades(index: 2,)
                               : const DetalleEspecialidad()));
             },
             child: const Icon(

@@ -23,6 +23,7 @@ class _GestionEspecialidadState extends State<GestionEspecialidad> {
 
   appBarGestionEspecialidad() {
     return AppBar(
+      automaticallyImplyLeading: false,
       backgroundColor: Colors.transparent,
       elevation: 0,
       title: Padding(
@@ -79,7 +80,7 @@ class _GestionEspecialidadState extends State<GestionEspecialidad> {
             Navigator.push(
                 context,
                 MaterialPageRoute(
-                    builder: (context) => const AdiccionarEspecialidades()));
+                    builder: (context) => const AdiccionarEspecialidades(index: 1,)));
           },
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
