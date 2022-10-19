@@ -80,7 +80,9 @@ class _GestionLocalState extends State<GestionLocal> {
             Navigator.push(
                 context,
                 MaterialPageRoute(
-                    builder: (context) => const AdicionarLocal()));
+                    builder: (context) => const AdicionarLocal(
+                          index: 1,
+                        )));
           },
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,

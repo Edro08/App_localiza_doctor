@@ -160,7 +160,7 @@ class _ListadoLocalState extends State<ListadoLocal> {
                       builder: (context) => (accion == "Deshabilitar")
                           ? const DeshabilitarHospital()
                           : (accion == "Actualizar")
-                              ? const AdicionarLocal(
+                              ? AdicionarLocal(
                                   index: 2,
                                 )
                               : const DetalleHospital()));
